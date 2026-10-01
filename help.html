@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hilfe — Trainer Control</title>
+  <style>
+    :root {
+      --bg: #0a0b0d;
+      --panel: #16181e;
+      --panel-raised: #1c1f26;
+      --panel-border: #2a2e37;
+      --fg: #eef1f4;
+      --fg-dim: #838ba0;
+      --accent-speed: #6cb6ff;
+      --accent-violet: #a78bfa;
+      --warn: #ffb020;
+      --zone-1: #6b7280;
+      --zone-2: #4a90d9;
+      --zone-3: #3ddc84;
+      --zone-4: #ffd43b;
+      --zone-5: #ff8c3d;
+      --zone-6: #ff5c6c;
+      --mono: ui-monospace, 'SF Mono', 'Menlo', 'Consolas', monospace;
+      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --radius-sm: 10px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--sans);
+      line-height: 1.55;
+      margin: 0;
+      padding: 0 0 80px;
+    }
+
+    .help-shell {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 32px 20px 0;
+    }
+
+    .help-title {
+      font-size: 1.7rem;
+      font-weight: 800;
+      margin: 0 0 4px;
+    }
+
+    .help-subtitle {
+      color: var(--fg-dim);
+      font-size: 0.95rem;
+      margin: 0 0 32px;
+    }
+
+    .help-toc {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      margin-bottom: 36px;
+    }
+
+    .help-toc-title {
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      color: var(--fg-dim);
+      margin-bottom: 10px;
+    }
+
+    .help-toc ol {
+      margin: 0;
+      padding-left: 1.2em;
+    }
+
+    .help-toc li {
+      margin-bottom: 4px;
+    }
+
+    .help-toc a {
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .help-toc a:hover {
+      color: var(--accent-speed);
+    }
+
+    section.help-section {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius-lg);
+      padding: 24px 24px 26px;
+      margin-bottom: 20px;
+      scroll-margin-top: 20px;
+    }
+
+    .help-section h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 0 0 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .help-section h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--fg-dim);
+      margin: 20px 0 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .help-section p {
+      margin: 0 0 12px;
+      color: var(--fg);
+    }
+
+    .help-section ol,
+    .help-section ul {
+      margin: 0 0 12px;
+      padding-left: 1.3em;
+    }
+
+    .help-section li {
+      margin-bottom: 8px;
+    }
+
+    .help-section li::marker {
+      color: var(--accent-speed);
+    }
+
+    kbd,
+    .ui {
+      background: var(--panel-raised);
+      border: 1px solid var(--panel-border);
+      border-radius: 6px;
+      padding: 1px 7px;
+      font-family: var(--mono);
+      font-size: 0.85em;
+      white-space: nowrap;
+    }
+
+    .help-note {
+      border-left: 3px solid var(--accent-violet);
+      background: rgba(167, 139, 250, 0.08);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 10px 14px;
+      font-size: 0.88rem;
+      color: var(--fg-dim);
+      margin: 12px 0;
+    }
+
+    .help-warn {
+      border-left: 3px solid var(--warn);
+      background: rgba(255, 176, 32, 0.08);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 10px 14px;
+      font-size: 0.88rem;
+      color: var(--fg-dim);
+      margin: 12px 0;
+    }
+
+    .zone-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 2px 9px;
+      border-radius: 999px;
+      color: #0a0b0d;
+    }
+
+    code {
+      font-family: var(--mono);
+      font-size: 0.85em;
+    }
+
+    .help-footer {
+      text-align: center;
+      color: var(--fg-dim);
+      font-size: 0.8rem;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="help-shell">
+    <div class="help-title">Trainer Control — Anleitung</div>
+    <p class="help-subtitle">
+      Ein schneller, lokaler Workout-Builder fürs Indoor-Rad: Workout bauen, Trainer per Bluetooth
+      verbinden, losfahren. Kein Konto, keine Cloud-Pflicht — alle Daten bleiben auf deinem Gerät.
+    </p>
+
+    <nav class="help-toc">
+      <div class="help-toc-title">INHALT</div>
+      <ol>
+        <li><a href="#voraussetzungen">Voraussetzungen</a></li>
+        <li><a href="#verbinden">Trainer &amp; Sensoren verbinden</a></li>
+        <li><a href="#workout-bauen">Ein Workout bauen</a></li>
+        <li><a href="#bloecke">Wiederholungs-Blöcke</a></li>
+        <li><a href="#fahren">Live fahren</a></li>
+        <li><a href="#profil">Profil: FTP, Gewicht, Herzfrequenz</a></li>
+        <li><a href="#backup">Backup-Ordner &amp; Datensicherung</a></li>
+        <li><a href="#export">Export / Import / ZWO</a></li>
+        <li><a href="#extension">Als Chrome-Erweiterung installieren</a></li>
+        <li><a href="#pwa">Als App installieren (PWA)</a></li>
+        <li><a href="#troubleshooting">Problemlösungen</a></li>
+      </ol>
+    </nav>
+
+    <section class="help-section" id="voraussetzungen">
+      <h2>🧩 Voraussetzungen</h2>
+      <ul>
+        <li>
+          <strong>Browser:</strong> Chrome oder Edge (Desktop, macOS/Windows/Linux/ChromeOS). Die
+          App nutzt <strong>Web Bluetooth</strong> für die Trainer-/Sensor-Verbindung — das
+          unterstützen Safari und Firefox bisher nicht.
+        </li>
+        <li>
+          <strong>Trainer:</strong> ein Smart-Trainer mit <strong>FTMS</strong>-Unterstützung
+          (Bluetooth „Fitness Machine Service“) — die meisten aktuellen Wahoo-, Tacx- und
+          Elite-Trainer bieten das.
+        </li>
+        <li>
+          <strong>Optional:</strong> ein Bluetooth-Herzfrequenzgurt (Standard „Heart Rate“-Profil)
+          und/oder ein Zwift Click/Play/Ride-Lenker für Schaltungs-/Steuerungseingaben.
+        </li>
+      </ul>
+    </section>
+
+    <section class="help-section" id="verbinden">
+      <h2>🔗 Trainer &amp; Sensoren verbinden</h2>
+      <ol>
+        <li>Oben rechts auf <span class="ui">● Verbindungen</span> klicken.</li>
+        <li>
+          Beim Eintrag <strong>„Rollentrainer“</strong> den Schalter aktivieren — Chrome öffnet
+          den Bluetooth-Geräteauswahl-Dialog, dort den Trainer auswählen.
+        </li>
+        <li>
+          Optional genauso bei <strong>„Herzfrequenzgurt“</strong> und <strong>„Lenker (Zwift
+          Ride)“</strong> verfahren.
+        </li>
+        <li>Ein grüner Punkt neben „Verbindungen“ zeigt: mindestens der Trainer ist verbunden.</li>
+      </ol>
+      <div class="help-note">
+        Trainer und Herzfrequenzgurt werden <strong>unabhängig voneinander</strong> gekoppelt — ein
+        Gurt, der gleichzeitig mit einer Sportuhr verbunden sein soll, siehe
+        <a href="#troubleshooting">Problemlösungen</a>.
+      </div>
+    </section>
+
+    <section class="help-section" id="workout-bauen">
+      <h2>🛠️ Ein Workout bauen</h2>
+      <p>Der <span class="ui">Workouts</span>-Tab ist die Startseite der App.</p>
+      <ol>
+        <li>
+          Oben Steps hinzufügen: <span class="ui">+ Steady</span> (konstante Leistung),
+          <span class="ui">+ Rampe ↑</span> / <span class="ui">+ Rampe ↓</span> (ansteigend/fallend)
+          oder <span class="ui">+ Free Ride</span> (ohne Zielvorgabe).
+        </li>
+        <li>
+          Schnellvorlagen über die Zonen-Chips
+          (<span class="zone-chip" style="background:var(--zone-1)">Z1</span>
+          <span class="zone-chip" style="background:var(--zone-2)">Z2</span>
+          <span class="zone-chip" style="background:var(--zone-3)">Z3</span>
+          <span class="zone-chip" style="background:var(--zone-4)">Z4</span>
+          <span class="zone-chip" style="background:var(--zone-5)">Z5</span>
+          <span class="zone-chip" style="background:var(--zone-6)">Z6</span>)
+          — legt direkt einen Step in der jeweiligen Zone an.
+        </li>
+        <li>
+          Im Graphen lassen sich Steps per Drag &amp; Drop verschieben, die Dauer am rechten Rand
+          eines Balkens durch Ziehen ändern.
+        </li>
+        <li>
+          Unterhalb des Graphen zeigt die Tabelle jeden Step einzeln mit Name, Dauer, Typ
+          (Steady/Rampe/Free Ride), Werte-Modus (Watt oder % FTP) und Zielwert — hier lässt sich
+          alles präzise per Eingabefeld statt per Maus anpassen.
+        </li>
+        <li>
+          Namen oben eingeben und auf <span class="ui">Speichern</span> klicken — das Workout
+          landet in der <strong>Bibliothek</strong> ganz unten, zusammen mit den mitgelieferten
+          Presets.
+        </li>
+      </ol>
+    </section>
+
+    <section class="help-section" id="bloecke">
+      <h2>🔁 Wiederholungs-Blöcke</h2>
+      <p>Für Intervalle, die sich mehrfach wiederholen (z. B. „6× 1 Min. hart / 1 Min. locker“):</p>
+      <ol>
+        <li>
+          Das violette <span class="ui">Block</span>-Element aus der Leiste in den Graphen ziehen
+          — oder in der Steps-Tabelle unten auf <span class="ui">+ Block</span> klicken.
+        </li>
+        <li>Die gewünschten Steps in den Block hineinziehen — sie werden visuell umschlossen.</li>
+        <li>Die Wiederholungsanzahl (×N) am Block einstellen.</li>
+        <li>
+          Über die Kopier-Schaltfläche am Block lässt sich ein ganzer Block inklusive aller
+          enthaltenen Steps duplizieren.
+        </li>
+      </ol>
+    </section>
+
+    <section class="help-section" id="fahren">
+      <h2>🚴 Live fahren</h2>
+      <ol>
+        <li>Trainer muss verbunden sein (siehe oben), sonst erscheint ein Hinweis.</li>
+        <li>
+          Workout in der Bibliothek wählen oder im Editor offen lassen, dann auf
+          <span class="ui">▶ Start</span> klicken.
+        </li>
+        <li>
+          Im Vorschau-Overlay auf <span class="ui">Jetzt starten</span> tippen — es folgt ein
+          <strong>10-Sekunden-Countdown</strong>, in dem Zeit bleibt, aufs Rad zu kommen und
+          einzuklicken, bevor die ERG-Last wirklich angelegt wird.
+        </li>
+        <li>
+          Während der Fahrt: <span class="ui">Pause</span>/<span class="ui">Weiter</span>,
+          Intensität live per <span class="ui">−</span>/<span class="ui">+</span> anpassen,
+          <span class="ui">⏹ Beenden</span> zum vorzeitigen Abbruch.
+        </li>
+        <li>
+          Nach dem Ende fragt die App, ob die Session gespeichert werden soll — das landet im
+          (aktuell aus der Navigation ausgeblendeten, aber weiterhin aktiven) Verlauf.
+        </li>
+      </ol>
+    </section>
+
+    <section class="help-section" id="profil">
+      <h2>⚙ Profil: FTP, Gewicht, Herzfrequenz</h2>
+      <p>Oben rechts auf <span class="ui">⚙ Profil</span> klicken.</p>
+      <ul>
+        <li><strong>FTP</strong> (Watt) — Grundlage für alle %FTP-Zielwerte und Zonengrenzen.</li>
+        <li><strong>Gewicht</strong> (kg) — für die W/kg-Anzeige während der Fahrt.</li>
+        <li>
+          <strong>Ruhe-HF</strong> und <strong>Max-HF</strong> — zusammen ergibt das die
+          Herzfrequenz-Reserve (Karvonen-Formel) für die HF-Zonenanzeige.
+        </li>
+      </ul>
+    </section>
+
+    <section class="help-section" id="backup">
+      <h2>📁 Backup-Ordner &amp; Datensicherung</h2>
+      <p>
+        Alle Daten liegen standardmäßig nur lokal im Browser. Damit nichts verloren geht (z. B.
+        beim Löschen der Chrome-Erweiterung), lässt sich ein beliebiger Ordner auf dem eigenen
+        Rechner als Backup-Ziel verbinden.
+      </p>
+      <ol>
+        <li>Im Profil-Panel ganz unten auf <span class="ui">Ordner wählen</span> klicken.</li>
+        <li>Einen Ordner auswählen und die Berechtigung „Lesen &amp; Schreiben“ bestätigen.</li>
+        <li>
+          Ab sofort schreibt die App bei jeder Änderung automatisch eine Datei
+          <code>trainer-control-backup.json</code> in diesen Ordner.
+        </li>
+        <li>
+          Nach einem Browser-Neustart kann die Berechtigung zurückgesetzt sein — dann erscheint
+          <span class="ui">🔒 Wieder verbinden</span>, einmal anklicken genügt.
+        </li>
+        <li>
+          Über <span class="ui">⬆ Aus Backup wiederherstellen</span> lässt sich der gesicherte
+          Stand jederzeit bewusst zurückholen (mit Sicherheitsabfrage, überschreibt nichts
+          automatisch).
+        </li>
+      </ol>
+      <div class="help-note">
+        <strong>Tipp:</strong> Wählst du als Ordner deinen lokalen Dropbox-, iCloud-Drive- oder
+        Google-Drive-Ordner, synct das Backup automatisch über mehrere Geräte — ganz ohne dass die
+        App selbst eine Cloud anfasst.
+      </div>
+    </section>
+
+    <section class="help-section" id="export">
+      <h2>⇅ Export / Import / ZWO</h2>
+      <ul>
+        <li>
+          In der Bibliothek: <span class="ui">⇩</span> sichert alle eigenen Workouts als
+          JSON-Datei, <span class="ui">⇧</span> liest eine solche Datei wieder ein.
+        </li>
+        <li>
+          Im Workout-Editor: <span class="ui">↓ Nach Garmin</span>/ZWO-Export erzeugt eine
+          <code>.zwo</code>-Datei für Zwift &amp; kompatible Apps.
+        </li>
+      </ul>
+    </section>
+
+    <section class="help-section" id="extension">
+      <h2>🧩 Als Chrome-Erweiterung installieren</h2>
+      <p>Die App ist im Chrome Web Store verfügbar — einfach installieren und loslegen.</p>
+    </section>
+
+    <section class="help-section" id="pwa">
+      <h2>📲 Als App installieren (PWA)</h2>
+      <p>
+        Unabhängig von der Extension lässt sich die normale Website auch als installierbare App
+        einrichten:
+      </p>
+      <ol>
+        <li>Die Seite im Browser öffnen (nicht die Extension-Variante).</li>
+        <li>
+          Im Installieren-Symbol in der Adressleiste (oder Browser-Menü → „App installieren“)
+          klicken.
+        </li>
+      </ol>
+    </section>
+
+    <section class="help-section" id="troubleshooting">
+      <h2>🔧 Problemlösungen</h2>
+
+      <h3>Herzfrequenzgurt verbindet sich nicht gleichzeitig mit Sportuhr</h3>
+      <p>
+        Manche Gurte (z. B. Garmin HRM-Dual/HRM-Pro) unterstützen zwar mehrere gleichzeitige
+        Bluetooth-Verbindungen, reagieren aber empfindlich auf die <strong>Reihenfolge</strong>:
+        zuerst die Uhr verbinden lassen, danach erst in dieser App den Gurt koppeln. Umgekehrt
+        funktioniert es bei einigen Geräten nicht zuverlässig.
+      </p>
+
+      <h3>„Web Bluetooth wird nicht unterstützt“</h3>
+      <p>
+        Chrome oder Edge verwenden, auf macOS/Windows/Linux. Safari und Firefox unterstützen Web
+        Bluetooth aktuell nicht.
+      </p>
+
+      <h3>Backup-Ordner-Button reagiert nicht / Status bleibt „Zugriff abgelaufen“</h3>
+      <p>
+        Chrome verlangt nach jedem Neustart erneut eine aktive Bestätigung für den
+        Datei-System-Zugriff. Einmal auf <span class="ui">🔒 Wieder verbinden</span> klicken.
+      </p>
+
+      <div class="help-warn">
+        Alle Daten (Workouts, Verlauf, Einstellungen) liegen lokal im Browser-Speicher. Ohne
+        verbundenen Backup-Ordner gehen sie beim Löschen der Browserdaten oder der Erweiterung
+        verloren — ein verbundener Backup-Ordner ist daher empfehlenswert.
+      </div>
+    </section>
+
+    <div class="help-footer">Trainer Control — lokal, ohne Konto, ohne Cloud-Zwang.</div>
+  </div>
+</body>
+</html>
