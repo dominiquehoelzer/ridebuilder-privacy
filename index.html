@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datenschutzerklärung — Trainer Control</title>
+  <style>
+    :root {
+      --bg: #0a0b0d;
+      --panel: #16181e;
+      --panel-border: #2a2e37;
+      --fg: #eef1f4;
+      --fg-dim: #838ba0;
+      --accent-speed: #6cb6ff;
+      --ok: #3ddc84;
+      --mono: ui-monospace, 'SF Mono', 'Menlo', 'Consolas', monospace;
+      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --radius-lg: 20px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--sans);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0 0 80px;
+    }
+
+    .pp-shell {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px 20px 0;
+    }
+
+    .pp-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin: 0 0 4px;
+    }
+
+    .pp-subtitle {
+      color: var(--fg-dim);
+      font-size: 0.9rem;
+      margin: 0 0 28px;
+    }
+
+    section {
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--radius-lg);
+      padding: 22px 24px;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin: 0 0 10px;
+    }
+
+    p,
+    li {
+      font-size: 0.92rem;
+      color: var(--fg);
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.3em;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    li::marker {
+      color: var(--accent-speed);
+    }
+
+    code {
+      font-family: var(--mono);
+      font-size: 0.85em;
+    }
+
+    .ok-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--ok);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="pp-shell">
+    <div class="pp-title">Datenschutzerklärung</div>
+    <p class="pp-subtitle">Trainer Control — Stand: 1. Oktober 2026</p>
+
+    <section>
+      <h2>Kurzfassung</h2>
+      <p class="ok-badge">✓ Es werden keine Daten erhoben, gespeichert oder übertragen — weder von uns noch von Dritten.</p>
+      <p>
+        Trainer Control ist eine rein lokale Anwendung. Sie betreibt keinen eigenen Server, keine
+        Analyse- oder Tracking-Dienste und sendet keine Nutzungs-, Leistungs- oder Gesundheitsdaten
+        irgendwohin.
+      </p>
+    </section>
+
+    <section>
+      <h2>Welche Daten verarbeitet werden</h2>
+      <ul>
+        <li>
+          <strong>Workout-, Verlaufs- und Profildaten</strong> (z. B. FTP, Gewicht, Herzfrequenz,
+          gefahrene Sessions) werden ausschließlich im lokalen Speicher deines Browsers
+          (<code>localStorage</code>) auf deinem eigenen Gerät abgelegt.
+        </li>
+        <li>
+          <strong>Bluetooth-Verbindungen</strong> (Smart-Trainer, Herzfrequenzgurt, Zwift-Lenker)
+          laufen direkt zwischen deinem Gerät und dem jeweiligen Sensor über die
+          Web-Bluetooth-Funktion des Browsers. Die Erweiterung selbst sieht oder speichert diese
+          Verbindung nicht zusätzlich.
+        </li>
+        <li>
+          <strong>Backup-Ordner (optional):</strong> Wählst du in den Einstellungen bewusst einen
+          Ordner auf deinem Rechner, schreibt die App eine Sicherungsdatei dorthin. Das geschieht
+          ausschließlich lokal über die Dateisystem-Funktion des Browsers — nie über das Internet.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Was NICHT passiert</h2>
+      <ul>
+        <li>Keine Übertragung an einen Server der Entwicklerin/des Entwicklers oder Dritter.</li>
+        <li>Keine Analyse-, Tracking- oder Werbe-Dienste.</li>
+        <li>Kein Nutzerkonto, kein Login, keine Cookies zu Tracking-Zwecken.</li>
+        <li>Keine Weitergabe von Daten an Dritte — es gibt schlicht nichts weiterzugeben.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Löschen deiner Daten</h2>
+      <p>
+        Da alle Daten ausschließlich lokal liegen, genügt das Deinstallieren der Erweiterung bzw.
+        das Leeren der Browser-/Website-Daten für diese Seite, um sämtliche Daten vollständig zu
+        entfernen. Ein zuvor verbundener Backup-Ordner bleibt davon unberührt und muss bei Bedarf
+        separat gelöscht werden.
+      </p>
+    </section>
+
+    <section>
+      <h2>Kontakt</h2>
+      <p>Fragen zu dieser Datenschutzerklärung: <code>[deine Kontakt-E-Mail hier einsetzen]</code></p>
+    </section>
+  </div>
+</body>
+</html>
