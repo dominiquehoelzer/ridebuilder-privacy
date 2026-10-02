@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hilfe — Trainer Control</title>
+  <title>Help — Trainer Control</title>
   <style>
     :root {
       --bg: #0a0b0d;
@@ -193,189 +193,182 @@
 </head>
 <body>
   <div class="help-shell">
-    <div class="help-title">Trainer Control — Anleitung</div>
+    <div class="help-title">Trainer Control — Guide</div>
     <p class="help-subtitle">
-      Ein schneller, lokaler Workout-Builder fürs Indoor-Rad: Workout bauen, Trainer per Bluetooth
-      verbinden, losfahren. Kein Konto, keine Cloud-Pflicht — alle Daten bleiben auf deinem Gerät.
+      A fast, local workout builder for indoor cycling: build a workout, connect your trainer over
+      Bluetooth, ride. No account, no cloud requirement — all data stays on your device.
     </p>
 
     <nav class="help-toc">
-      <div class="help-toc-title">INHALT</div>
+      <div class="help-toc-title">CONTENTS</div>
       <ol>
-        <li><a href="#voraussetzungen">Voraussetzungen</a></li>
-        <li><a href="#verbinden">Trainer &amp; Sensoren verbinden</a></li>
-        <li><a href="#workout-bauen">Ein Workout bauen</a></li>
-        <li><a href="#bloecke">Wiederholungs-Blöcke</a></li>
-        <li><a href="#fahren">Live fahren</a></li>
-        <li><a href="#profil">Profil: FTP, Gewicht, Herzfrequenz</a></li>
-        <li><a href="#backup">Backup-Ordner &amp; Datensicherung</a></li>
+        <li><a href="#voraussetzungen">Requirements</a></li>
+        <li><a href="#verbinden">Connecting trainer &amp; sensors</a></li>
+        <li><a href="#workout-bauen">Building a workout</a></li>
+        <li><a href="#bloecke">Repeat blocks</a></li>
+        <li><a href="#fahren">Riding live</a></li>
+        <li><a href="#profil">Settings: FTP, weight, heart rate</a></li>
+        <li><a href="#backup">Backup folder &amp; data</a></li>
         <li><a href="#export">Export / Import / ZWO</a></li>
-        <li><a href="#extension">Als Chrome-Erweiterung installieren</a></li>
-        <li><a href="#pwa">Als App installieren (PWA)</a></li>
-        <li><a href="#troubleshooting">Problemlösungen</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
       </ol>
     </nav>
 
     <section class="help-section" id="voraussetzungen">
-      <h2>🧩 Voraussetzungen</h2>
+      <h2>🧩 Requirements</h2>
       <ul>
         <li>
-          <strong>Browser:</strong> Chrome oder Edge (Desktop, macOS/Windows/Linux/ChromeOS). Die
-          App nutzt <strong>Web Bluetooth</strong> für die Trainer-/Sensor-Verbindung — das
-          unterstützen Safari und Firefox bisher nicht.
+          <strong>Browser:</strong> Chrome or Edge (desktop, macOS/Windows/Linux/ChromeOS). The app
+          uses <strong>Web Bluetooth</strong> for the trainer/sensor connection — Safari and
+          Firefox don't support this yet.
         </li>
         <li>
-          <strong>Trainer:</strong> ein Smart-Trainer mit <strong>FTMS</strong>-Unterstützung
-          (Bluetooth „Fitness Machine Service“) — die meisten aktuellen Wahoo-, Tacx- und
-          Elite-Trainer bieten das.
+          <strong>Trainer:</strong> a smart trainer with <strong>FTMS</strong> support (Bluetooth
+          "Fitness Machine Service") — most current Wahoo, Tacx and Elite trainers offer this.
         </li>
         <li>
-          <strong>Optional:</strong> ein Bluetooth-Herzfrequenzgurt (Standard „Heart Rate“-Profil)
-          und/oder ein Zwift Click/Play/Ride-Lenker für Schaltungs-/Steuerungseingaben.
+          <strong>Optional:</strong> a Bluetooth heart rate strap (standard "Heart Rate" profile)
+          and/or a Zwift Click/Play/Ride controller for shifting/steering input.
         </li>
       </ul>
     </section>
 
     <section class="help-section" id="verbinden">
-      <h2>🔗 Trainer &amp; Sensoren verbinden</h2>
+      <h2>🔗 Connecting trainer &amp; sensors</h2>
       <ol>
-        <li>Oben rechts auf <span class="ui">● Verbindungen</span> klicken.</li>
+        <li>Click <span class="ui">● Connections</span> in the top right.</li>
         <li>
-          Beim Eintrag <strong>„Rollentrainer“</strong> den Schalter aktivieren — Chrome öffnet
-          den Bluetooth-Geräteauswahl-Dialog, dort den Trainer auswählen.
+          Turn on the switch next to <strong>"Smart Trainer"</strong> — Chrome opens the Bluetooth
+          device picker, select your trainer there.
         </li>
         <li>
-          Optional genauso bei <strong>„Herzfrequenzgurt“</strong> und <strong>„Lenker (Zwift
-          Ride)“</strong> verfahren.
+          Do the same for <strong>"Heart Rate Strap"</strong> and <strong>"Controller (Zwift
+          Ride)"</strong> if you have them.
         </li>
-        <li>Ein grüner Punkt neben „Verbindungen“ zeigt: mindestens der Trainer ist verbunden.</li>
+        <li>A green dot next to "Connections" shows that at least the trainer is connected.</li>
       </ol>
       <div class="help-note">
-        Trainer und Herzfrequenzgurt werden <strong>unabhängig voneinander</strong> gekoppelt — ein
-        Gurt, der gleichzeitig mit einer Sportuhr verbunden sein soll, siehe
-        <a href="#troubleshooting">Problemlösungen</a>.
+        The trainer and heart rate strap pair <strong>independently of each other</strong> — for a
+        strap that should also stay connected to a sports watch at the same time, see
+        <a href="#troubleshooting">Troubleshooting</a>.
       </div>
     </section>
 
     <section class="help-section" id="workout-bauen">
-      <h2>🛠️ Ein Workout bauen</h2>
-      <p>Der <span class="ui">Workouts</span>-Tab ist die Startseite der App.</p>
+      <h2>🛠️ Building a workout</h2>
+      <p>The <span class="ui">Workouts</span> tab is the app's home screen.</p>
       <ol>
         <li>
-          Oben Steps hinzufügen: <span class="ui">+ Steady</span> (konstante Leistung),
-          <span class="ui">+ Rampe ↑</span> / <span class="ui">+ Rampe ↓</span> (ansteigend/fallend)
-          oder <span class="ui">+ Free Ride</span> (ohne Zielvorgabe).
+          Add steps at the top: <span class="ui">+ Steady</span> (constant power),
+          <span class="ui">+ Ramp ↑</span> / <span class="ui">+ Ramp ↓</span> (rising/falling), or
+          <span class="ui">+ Free Ride</span> (no target).
         </li>
         <li>
-          Schnellvorlagen über die Zonen-Chips
+          Quick presets via the zone chips
           (<span class="zone-chip" style="background:var(--zone-1)">Z1</span>
           <span class="zone-chip" style="background:var(--zone-2)">Z2</span>
           <span class="zone-chip" style="background:var(--zone-3)">Z3</span>
           <span class="zone-chip" style="background:var(--zone-4)">Z4</span>
           <span class="zone-chip" style="background:var(--zone-5)">Z5</span>
           <span class="zone-chip" style="background:var(--zone-6)">Z6</span>)
-          — legt direkt einen Step in der jeweiligen Zone an.
+          — adds a step directly in that zone.
         </li>
         <li>
-          Im Graphen lassen sich Steps per Drag &amp; Drop verschieben, die Dauer am rechten Rand
-          eines Balkens durch Ziehen ändern.
+          In the graph, steps can be moved by drag and drop, and the duration can be changed by
+          dragging the right edge of a bar.
         </li>
         <li>
-          Unterhalb des Graphen zeigt die Tabelle jeden Step einzeln mit Name, Dauer, Typ
-          (Steady/Rampe/Free Ride), Werte-Modus (Watt oder % FTP) und Zielwert — hier lässt sich
-          alles präzise per Eingabefeld statt per Maus anpassen.
+          Below the graph, the table lists every step individually with name, duration, type
+          (Steady/Ramp/Free Ride), value mode (watts or % FTP) and target value — everything can be
+          adjusted precisely via input field instead of the mouse here.
         </li>
         <li>
-          Namen oben eingeben und auf <span class="ui">Speichern</span> klicken — das Workout
-          landet in der <strong>Bibliothek</strong> ganz unten, zusammen mit den mitgelieferten
-          Presets.
+          Enter a name at the top and click <span class="ui">Save</span> — the workout lands in the
+          <strong>Library</strong> at the bottom, alongside the built-in presets.
         </li>
       </ol>
     </section>
 
     <section class="help-section" id="bloecke">
-      <h2>🔁 Wiederholungs-Blöcke</h2>
-      <p>Für Intervalle, die sich mehrfach wiederholen (z. B. „6× 1 Min. hart / 1 Min. locker“):</p>
+      <h2>🔁 Repeat blocks</h2>
+      <p>For intervals that repeat several times (e.g. "6× 1 min hard / 1 min easy"):</p>
       <ol>
         <li>
-          Das violette <span class="ui">Block</span>-Element aus der Leiste in den Graphen ziehen
-          — oder in der Steps-Tabelle unten auf <span class="ui">+ Block</span> klicken.
+          Drag the violet <span class="ui">Block</span> element from the toolbar onto the graph —
+          or click <span class="ui">+ Block</span> in the steps table below.
         </li>
-        <li>Die gewünschten Steps in den Block hineinziehen — sie werden visuell umschlossen.</li>
-        <li>Die Wiederholungsanzahl (×N) am Block einstellen.</li>
+        <li>Drag the desired steps into the block — they get visually enclosed.</li>
+        <li>Set the repeat count (×N) on the block.</li>
         <li>
-          Über die Kopier-Schaltfläche am Block lässt sich ein ganzer Block inklusive aller
-          enthaltenen Steps duplizieren.
+          The copy button on a block duplicates the whole block, including all steps it contains.
         </li>
       </ol>
     </section>
 
     <section class="help-section" id="fahren">
-      <h2>🚴 Live fahren</h2>
+      <h2>🚴 Riding live</h2>
       <ol>
-        <li>Trainer muss verbunden sein (siehe oben), sonst erscheint ein Hinweis.</li>
+        <li>The trainer must be connected (see above), otherwise a notice appears.</li>
         <li>
-          Workout in der Bibliothek wählen oder im Editor offen lassen, dann auf
-          <span class="ui">▶ Start</span> klicken.
+          Choose a workout in the library or leave it open in the editor, then click
+          <span class="ui">▶ Start</span>.
         </li>
         <li>
-          Im Vorschau-Overlay auf <span class="ui">Jetzt starten</span> tippen — es folgt ein
-          <strong>10-Sekunden-Countdown</strong>, in dem Zeit bleibt, aufs Rad zu kommen und
-          einzuklicken, bevor die ERG-Last wirklich angelegt wird.
+          Tap <span class="ui">Start now</span> in the preview overlay — a
+          <strong>10-second countdown</strong> follows, giving you time to get on the bike and clip
+          in before the ERG load is actually applied.
         </li>
         <li>
-          Während der Fahrt: <span class="ui">Pause</span>/<span class="ui">Weiter</span>,
-          Intensität live per <span class="ui">−</span>/<span class="ui">+</span> anpassen,
-          <span class="ui">⏹ Beenden</span> zum vorzeitigen Abbruch.
+          While riding: <span class="ui">Pause</span>/<span class="ui">Resume</span>, adjust
+          intensity live with <span class="ui">−</span>/<span class="ui">+</span>,
+          <span class="ui">⏹ End</span> to stop early.
         </li>
         <li>
-          Nach dem Ende fragt die App, ob die Session gespeichert werden soll — das landet im
-          (aktuell aus der Navigation ausgeblendeten, aber weiterhin aktiven) Verlauf.
+          When it ends, the app asks whether to save the session to History.
         </li>
       </ol>
     </section>
 
     <section class="help-section" id="profil">
-      <h2>⚙ Profil: FTP, Gewicht, Herzfrequenz</h2>
-      <p>Oben rechts auf <span class="ui">⚙ Profil</span> klicken.</p>
+      <h2>⚙ Settings: FTP, weight, heart rate</h2>
+      <p>Click <span class="ui">⚙ Settings</span> in the top right.</p>
       <ul>
-        <li><strong>FTP</strong> (Watt) — Grundlage für alle %FTP-Zielwerte und Zonengrenzen.</li>
-        <li><strong>Gewicht</strong> (kg) — für die W/kg-Anzeige während der Fahrt.</li>
+        <li><strong>FTP</strong> (watts) — the basis for all %FTP targets and zone boundaries.</li>
+        <li><strong>Weight</strong> (kg) — for the W/kg display while riding.</li>
         <li>
-          <strong>Ruhe-HF</strong> und <strong>Max-HF</strong> — zusammen ergibt das die
-          Herzfrequenz-Reserve (Karvonen-Formel) für die HF-Zonenanzeige.
+          <strong>Resting HR</strong> and <strong>Max HR</strong> — together these give the heart
+          rate reserve (Karvonen formula) for the HR zone display.
         </li>
       </ul>
     </section>
 
     <section class="help-section" id="backup">
-      <h2>📁 Backup-Ordner &amp; Datensicherung</h2>
+      <h2>📁 Backup folder &amp; data</h2>
       <p>
-        Alle Daten liegen standardmäßig nur lokal im Browser. Damit nichts verloren geht (z. B.
-        beim Löschen der Chrome-Erweiterung), lässt sich ein beliebiger Ordner auf dem eigenen
-        Rechner als Backup-Ziel verbinden.
+        By default, all data lives only locally in the browser. So nothing gets lost (e.g. when
+        removing the Chrome extension), you can connect any folder on your own computer as a backup
+        target.
       </p>
       <ol>
-        <li>Im Profil-Panel ganz unten auf <span class="ui">Ordner wählen</span> klicken.</li>
-        <li>Einen Ordner auswählen und die Berechtigung „Lesen &amp; Schreiben“ bestätigen.</li>
+        <li>At the bottom of the Settings panel, click <span class="ui">Choose folder</span>.</li>
+        <li>Pick a folder and confirm the "read & write" permission.</li>
         <li>
-          Ab sofort schreibt die App bei jeder Änderung automatisch eine Datei
-          <code>trainer-control-backup.json</code> in diesen Ordner.
+          From then on, the app automatically writes a <code>trainer-control-backup.json</code>
+          file to that folder on every change.
         </li>
         <li>
-          Nach einem Browser-Neustart kann die Berechtigung zurückgesetzt sein — dann erscheint
-          <span class="ui">🔒 Wieder verbinden</span>, einmal anklicken genügt.
+          After a browser restart, the permission may have been reset — then
+          <span class="ui">🔒 Reconnect</span> appears, one click is enough.
         </li>
         <li>
-          Über <span class="ui">⬆ Aus Backup wiederherstellen</span> lässt sich der gesicherte
-          Stand jederzeit bewusst zurückholen (mit Sicherheitsabfrage, überschreibt nichts
-          automatisch).
+          <span class="ui">⬆ Restore from backup</span> lets you deliberately pull the saved state
+          back at any time (with a confirmation prompt, never overwrites anything automatically).
         </li>
       </ol>
       <div class="help-note">
-        <strong>Tipp:</strong> Wählst du als Ordner deinen lokalen Dropbox-, iCloud-Drive- oder
-        Google-Drive-Ordner, synct das Backup automatisch über mehrere Geräte — ganz ohne dass die
-        App selbst eine Cloud anfasst.
+        <strong>Tip:</strong> if you choose your local Dropbox, iCloud Drive or Google Drive folder,
+        the backup syncs automatically across multiple devices — without the app itself ever
+        touching a cloud.
       </div>
     </section>
 
@@ -383,67 +376,51 @@
       <h2>⇅ Export / Import / ZWO</h2>
       <ul>
         <li>
-          In der Bibliothek: <span class="ui">⇩</span> sichert alle eigenen Workouts als
-          JSON-Datei, <span class="ui">⇧</span> liest eine solche Datei wieder ein.
+          In the library: <span class="ui">Share</span> saves all your own workouts as .zwo files
+          in one ZIP, <span class="ui">Import</span> reads either such a JSON backup
+          <strong>or a single <code>.zwo</code> file</strong> (file type is detected
+          automatically).
         </li>
         <li>
-          Im Workout-Editor: <span class="ui">↓ Nach Garmin</span>/ZWO-Export erzeugt eine
-          <code>.zwo</code>-Datei für Zwift &amp; kompatible Apps.
+          In the workout editor: <span class="ui">↓ As .ZWO (Zwift / Garmin)</span> downloads the
+          currently open workout as a <code>.zwo</code> file — directly usable in Zwift &amp;
+          compatible apps. For Garmin watches it takes a detour: import the file into Garmin
+          Connect with the separate, free "Garmin Workout Importer" Chrome extension, from there it
+          syncs wirelessly to the watch.
         </li>
       </ul>
     </section>
 
-    <section class="help-section" id="extension">
-      <h2>🧩 Als Chrome-Erweiterung installieren</h2>
-      <p>Die App ist im Chrome Web Store verfügbar — einfach installieren und loslegen.</p>
-    </section>
-
-    <section class="help-section" id="pwa">
-      <h2>📲 Als App installieren (PWA)</h2>
-      <p>
-        Unabhängig von der Extension lässt sich die normale Website auch als installierbare App
-        einrichten:
-      </p>
-      <ol>
-        <li>Die Seite im Browser öffnen (nicht die Extension-Variante).</li>
-        <li>
-          Im Installieren-Symbol in der Adressleiste (oder Browser-Menü → „App installieren“)
-          klicken.
-        </li>
-      </ol>
-    </section>
-
     <section class="help-section" id="troubleshooting">
-      <h2>🔧 Problemlösungen</h2>
+      <h2>🔧 Troubleshooting</h2>
 
-      <h3>Herzfrequenzgurt verbindet sich nicht gleichzeitig mit Sportuhr</h3>
+      <h3>Heart rate strap won't connect at the same time as a sports watch</h3>
       <p>
-        Manche Gurte (z. B. Garmin HRM-Dual/HRM-Pro) unterstützen zwar mehrere gleichzeitige
-        Bluetooth-Verbindungen, reagieren aber empfindlich auf die <strong>Reihenfolge</strong>:
-        zuerst die Uhr verbinden lassen, danach erst in dieser App den Gurt koppeln. Umgekehrt
-        funktioniert es bei einigen Geräten nicht zuverlässig.
+        Some straps (e.g. Garmin HRM-Dual/HRM-Pro) do support multiple simultaneous Bluetooth
+        connections, but are sensitive to <strong>order</strong>: connect the watch first, then
+        pair the strap in this app. The reverse doesn't work reliably on some devices.
       </p>
 
-      <h3>„Web Bluetooth wird nicht unterstützt“</h3>
+      <h3>"Web Bluetooth is not supported"</h3>
       <p>
-        Chrome oder Edge verwenden, auf macOS/Windows/Linux. Safari und Firefox unterstützen Web
-        Bluetooth aktuell nicht.
+        Use Chrome or Edge, on macOS/Windows/Linux. Safari and Firefox don't currently support Web
+        Bluetooth.
       </p>
 
-      <h3>Backup-Ordner-Button reagiert nicht / Status bleibt „Zugriff abgelaufen“</h3>
+      <h3>Backup folder button doesn't respond / status stays "Access expired"</h3>
       <p>
-        Chrome verlangt nach jedem Neustart erneut eine aktive Bestätigung für den
-        Datei-System-Zugriff. Einmal auf <span class="ui">🔒 Wieder verbinden</span> klicken.
+        Chrome requires active confirmation for file-system access again after every restart. Click
+        <span class="ui">🔒 Reconnect</span> once.
       </p>
 
       <div class="help-warn">
-        Alle Daten (Workouts, Verlauf, Einstellungen) liegen lokal im Browser-Speicher. Ohne
-        verbundenen Backup-Ordner gehen sie beim Löschen der Browserdaten oder der Erweiterung
-        verloren — ein verbundener Backup-Ordner ist daher empfehlenswert.
+        All data (workouts, history, settings) lives locally in browser storage. Without a
+        connected backup folder, it's lost if browser data or the extension is removed — a
+        connected backup folder is therefore recommended.
       </div>
     </section>
 
-    <div class="help-footer">Trainer Control — lokal, ohne Konto, ohne Cloud-Zwang.</div>
+    <div class="help-footer">Trainer Control — local, no account, no cloud required.</div>
   </div>
 </body>
 </html>
